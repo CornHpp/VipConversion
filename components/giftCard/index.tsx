@@ -14,12 +14,12 @@ const GiftCard: React.FC<GiftCardProps> = ({ index, immediateExchange }) => {
   return (
     <div
       key={index + "a"}
-      className="relative mt-[20px]
-      h-[260px]
-       w-[48%] border
+      className="relative
+      w-full
+       border
         border-slate-300 bg-white shadow-[0_2px_8px_0_rgba(119,123,166,.1)] transition duration-500
         ease-in-out
-        hover:shadow-xl lg:mt-[40px] lg:h-[230px] lg:w-[280px]
+        hover:shadow-xl 
         "
     >
       <div className="bg flex h-[120px] w-full items-center justify-center overflow-hidden bg-[#f5f8fa] lg:h-[50%]">

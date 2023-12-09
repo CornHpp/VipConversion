@@ -5,7 +5,7 @@ import GiftCard from "@/components/giftCard";
 export default function Home() {
   const router = useRouter();
 
-  const [giftList, setGiftList] = useState([{}, {}, {}, {}, {}]);
+  const [giftList, setGiftList] = useState([{}, {}, {}, {}, {}, {}]);
 
   const clickMore = () => {
     setGiftList([...giftList, {}, {}, {}, {}]);
@@ -27,16 +27,22 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-between">
+      <div className="card flex flex-wrap justify-between lg:justify-start">
         {giftList.map((item, index) => {
           return (
-            <GiftCard
-              index={index}
+            <div
               key={index}
-              immediateExchange={() => {
-                router.push("/giftdetail");
-              }}
-            />
+              className=" cardFour mt-[23px]
+            h-[260px] w-[48%]  lg:mr-[42px]
+            lg:mt-[40px] lg:h-[230px] lg:w-[280px]"
+            >
+              <GiftCard
+                index={index}
+                immediateExchange={() => {
+                  router.push("/giftdetail");
+                }}
+              />
+            </div>
           );
         })}
       </div>
