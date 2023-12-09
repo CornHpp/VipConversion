@@ -8,7 +8,7 @@ import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 import { useState } from "react";
 
-export default function NavBar({ session }: { session: Session | null }) {
+export default function NavBar({ session }: { session?: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
 
