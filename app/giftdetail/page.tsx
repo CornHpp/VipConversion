@@ -48,7 +48,15 @@ const AddressPage: React.FC = () => {
               </div>
               <div className="mt-2 flex items-center">
                 <div className="w-[80px]">收货人 </div>
-                <span className="text-[#333]">新增收货地址</span>
+                {/* <span className="text-[#333]">新增收货地址</span> */}
+                <span
+                  onClick={() => {
+                    router.push("/address");
+                  }}
+                  className="text-[#00a4ff]"
+                >
+                  新增收货地址
+                </span>
               </div>
               <div className="mt-2 flex items-center">
                 <div className="w-[80px]">联系电话 </div>
