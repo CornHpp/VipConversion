@@ -2,6 +2,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import GiftCard from "@/components/giftCard";
+import useTranslation from "next-translate/useTranslation";
+import { LangSwitcher } from "@/components/LangSwitcher";
+
 export default function Home() {
   const router = useRouter();
 
@@ -10,8 +13,13 @@ export default function Home() {
   const clickMore = () => {
     setGiftList([...giftList, {}, {}, {}, {}]);
   };
+
+  const { t } = useTranslation("common");
+  const example = t("common:hello", { count: 42 });
   return (
     <div className="w-screem max-w-screen-xl px-4 md:w-full">
+      {example}
+      <LangSwitcher></LangSwitcher>
       <div className="text-2xl lg:text-3xl">Wager.game VIP 产品兑换</div>
       <div className="mt-6 flex items-center">
         <div>

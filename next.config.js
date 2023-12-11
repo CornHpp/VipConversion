@@ -1,7 +1,10 @@
-/** @type {import('next').NextConfig} */
+const nextTranslate = require("next-translate-plugin");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: ["lh3.googleusercontent.com", "vercel.com"],
   },
@@ -16,4 +19,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = nextTranslate(nextConfig);

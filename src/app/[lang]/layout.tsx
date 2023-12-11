@@ -22,11 +22,13 @@ export const viewport = {
 };
 export default async function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={cx(sfPro.variable, inter.variable)}>
         <div className="fixed z-[-1] h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
         <Suspense fallback="...">
