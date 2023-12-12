@@ -1,4 +1,5 @@
 "use client";
+import useTranslation from "next-translate/useTranslation";
 import React, { useState } from "react";
 import {
   Button,
@@ -22,6 +23,7 @@ const AddressPage: React.FC = () => {
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
+  const { t } = useTranslation("common");
 
   return (
     <div
@@ -31,7 +33,7 @@ const AddressPage: React.FC = () => {
     lg:w-[600px] 
     "
     >
-      <div className="mb-[20px] w-[90%] text-[20px]">编辑收货地址</div>
+      <div className="mb-[20px] w-[90%] text-[20px]">{t("address.title")}</div>
       <Form
         className="w-[90%]"
         labelCol={{ span: 6 }}
@@ -42,47 +44,47 @@ const AddressPage: React.FC = () => {
         size={componentSize as SizeType}
         style={{ maxWidth: 600 }}
       >
-        <Form.Item label="国家">
+        <Form.Item label={t("address.country")}>
           <Select size="large">
             <Select.Option value="demo">Demo</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="收件人姓名">
+        <Form.Item label={t("address.name")}>
           <Input
             placeholder="Full name"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
 
-        <Form.Item label="详细地址">
+        <Form.Item label={t("address.address")}>
           <Input
             placeholder="Apartment,suite,unit,building,floor,etc."
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label="城市">
+        <Form.Item label={t("address.city")}>
           <Input placeholder="City" className=" rounded-lg border-[#d9d9d9]" />
         </Form.Item>
 
-        <Form.Item label="省份">
+        <Form.Item label={t("address.city")}>
           <Input
             placeholder="State/Province/Region"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label="邮政编码">
+        <Form.Item label={t("address.code")}>
           <Input
             placeholder="ZIP Code"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label="身份证号（选填）">
+        <Form.Item label={t("address.IdNumber")}>
           <Input
             placeholder="Citizen ID Number"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label="收件人手机号">
+        <Form.Item label={t("address.phone")}>
           <Input
             placeholder="Phone Number"
             className=" rounded-lg border-[#d9d9d9]"
@@ -90,9 +92,9 @@ const AddressPage: React.FC = () => {
         </Form.Item>
 
         <div className="flex w-full justify-end">
-          <Button className="mr-[20px]">取消</Button>
+          <Button className="mr-[20px]">{t("address.cancel")}</Button>
           <Button type="primary" className="bg-[#4096FF] text-white ">
-            确认
+            {t("address.submit")}
           </Button>
         </div>
       </Form>

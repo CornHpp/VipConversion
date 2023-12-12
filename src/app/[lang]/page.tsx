@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import GiftCard from "@/components/giftCard";
 import useTranslation from "next-translate/useTranslation";
-import { LangSwitcher } from "@/components/LangSwitcher";
 
 export default function Home() {
   const router = useRouter();
@@ -15,15 +14,12 @@ export default function Home() {
   };
 
   const { t } = useTranslation("common");
-  const example = t("common:hello", { count: 42 });
   return (
     <div className="w-screem max-w-screen-xl px-4 md:w-full">
-      {example}
-      <LangSwitcher></LangSwitcher>
-      <div className="text-2xl lg:text-3xl">Wager.game VIP 产品兑换</div>
+      <div className="text-2xl lg:text-3xl">{t("home.title")}</div>
       <div className="mt-6 flex items-center">
         <div>
-          排列方式: <span>全部</span>
+          {t("home.arrang")}: <span>全部</span>
         </div>
         <div
           onClick={() => {
@@ -31,7 +27,7 @@ export default function Home() {
           }}
           className="ml-4 cursor-pointer text-[#00a4ff]"
         >
-          邮寄地址管理&gt;
+          {t("home.address")}&gt;
         </div>
       </div>
 
@@ -59,7 +55,7 @@ export default function Home() {
         onClick={clickMore}
         className="mx-auto mt-10 w-[120px] cursor-pointer pb-8 text-[#00a4ff]"
       >
-        查看更多产品&gt;
+        {t("home.more")}&gt;
       </div>
     </div>
   );

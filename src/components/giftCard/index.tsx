@@ -1,6 +1,7 @@
 import React from "react";
 import giftPhoto from "@/assets/1.png";
 import hotPhoto from "@/assets/hot.png";
+import useTranslation from "next-translate/useTranslation";
 
 interface GiftCardProps {
   // Add your prop types here
@@ -11,6 +12,8 @@ interface GiftCardProps {
 import Image from "next/image";
 
 const GiftCard: React.FC<GiftCardProps> = ({ index, immediateExchange }) => {
+  const { t } = useTranslation("common");
+
   return (
     <div
       key={index + "a"}
@@ -31,14 +34,15 @@ const GiftCard: React.FC<GiftCardProps> = ({ index, immediateExchange }) => {
         <div className="mt-[10px] items-end justify-between lg:flex">
           <div className=" text-[#f56f23]">600积分</div>
           <div
-            className={`mt-[15px] flex h-[30px] 
-            w-[80px] cursor-pointer
+            className={`mt-[15px] flex min-h-[30px] 
+            min-w-[80px] cursor-pointer
             items-center
-            justify-center border border-[#00a4ff]
+            justify-center
+            border border-[#00a4ff] px-2
             text-[#00a4ff] ${index == 1 ? "grayscale" : ""}`}
             onClick={immediateExchange}
           >
-            立即兑换
+            {t("home.redeem")}
           </div>
         </div>
       </div>

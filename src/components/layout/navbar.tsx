@@ -7,6 +7,7 @@ import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 import { useState } from "react";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 export default function NavBar({ session }: { session?: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -51,6 +52,7 @@ export default function NavBar({ session }: { session?: Session | null }) {
             <Link className="ml-4 font-bold lg:ml-10" href="/level">
               Level
             </Link>
+            <LangSwitcher></LangSwitcher>
           </div>
 
           <div>

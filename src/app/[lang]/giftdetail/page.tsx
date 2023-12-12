@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import GiftImg from "@/components/giftImg";
 import { useRouter } from "next/navigation";
+import useTranslation from "next-translate/useTranslation";
 
 const AddressPage: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation("common");
+
   return (
     <div className="px-4">
       <div
