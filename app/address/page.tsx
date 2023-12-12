@@ -1,29 +1,28 @@
 "use client";
-import useTranslation from "next-translate/useTranslation";
 import React, { useState } from "react";
-import {
-  Button,
-  Cascader,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Select,
-  Switch,
-  TreeSelect,
-} from "antd";
+import { countries } from "@/lib/countries";
+import { Button, Form, Input, Select } from "antd";
 type SizeType = Parameters<typeof Form>[0]["size"];
 
-const AddressPage: React.FC = () => {
+const Address: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType | "default">(
     "large",
   );
 
+  const options = countries.map((country) => {
+    return {
+      value: country.name,
+      label: country.name,
+    };
+  });
+
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
-  const { t } = useTranslation("common");
+
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
 
   return (
     <div
@@ -33,7 +32,7 @@ const AddressPage: React.FC = () => {
     lg:w-[600px] 
     "
     >
-      <div className="mb-[20px] w-[90%] text-[20px]">{t("address.title")}</div>
+      <div className="mb-[20px] w-[90%] text-[20px]">address manage</div>
       <Form
         className="w-[90%]"
         labelCol={{ span: 6 }}
@@ -44,47 +43,49 @@ const AddressPage: React.FC = () => {
         size={componentSize as SizeType}
         style={{ maxWidth: 600 }}
       >
-        <Form.Item label={t("address.country")}>
-          <Select size="large">
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+        <Form.Item label="Select Country">
+          <Select
+            defaultValue="China"
+            onChange={handleChange}
+            options={options}
+          />
         </Form.Item>
-        <Form.Item label={t("address.name")}>
+        <Form.Item label="Name">
           <Input
             placeholder="Full name"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
 
-        <Form.Item label={t("address.address")}>
+        <Form.Item label="Address">
           <Input
             placeholder="Apartment,suite,unit,building,floor,etc."
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label={t("address.city")}>
+        <Form.Item label="City">
           <Input placeholder="City" className=" rounded-lg border-[#d9d9d9]" />
         </Form.Item>
 
-        <Form.Item label={t("address.city")}>
+        <Form.Item label="Province">
           <Input
             placeholder="State/Province/Region"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label={t("address.code")}>
+        <Form.Item label="Zip">
           <Input
             placeholder="ZIP Code"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label={t("address.IdNumber")}>
+        <Form.Item label="Citizen ID Number">
           <Input
             placeholder="Citizen ID Number"
             className=" rounded-lg border-[#d9d9d9]"
           />
         </Form.Item>
-        <Form.Item label={t("address.phone")}>
+        <Form.Item label="Phone Number">
           <Input
             placeholder="Phone Number"
             className=" rounded-lg border-[#d9d9d9]"
@@ -92,9 +93,9 @@ const AddressPage: React.FC = () => {
         </Form.Item>
 
         <div className="flex w-full justify-end">
-          <Button className="mr-[20px]">{t("address.cancel")}</Button>
+          <Button className="mr-[20px]">Cancel</Button>
           <Button type="primary" className="bg-[#4096FF] text-white ">
-            {t("address.submit")}
+            Add address
           </Button>
         </div>
       </Form>
@@ -102,4 +103,4 @@ const AddressPage: React.FC = () => {
   );
 };
 
-export default AddressPage;
+export default Address;

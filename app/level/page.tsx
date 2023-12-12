@@ -16,7 +16,9 @@ const AddressPage: React.FC = () => {
     ease-in-out hover:shadow-xl lg:min-h-[600px] lg:min-w-[1000px]
     "
       >
-        <div className="mb-[20px] w-[90%] text-[20px]">兑换条件查询</div>
+        <div className="mb-[20px] w-[90%] text-[20px]">
+          Exchange terms inquiry
+        </div>
 
         <LevelTabel></LevelTabel>
       </div>

@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import GiftCard from "@/components/giftCard";
-import useTranslation from "next-translate/useTranslation";
+import { Select } from "antd";
 
 export default function Home() {
   const router = useRouter();
@@ -12,14 +12,34 @@ export default function Home() {
   const clickMore = () => {
     setGiftList([...giftList, {}, {}, {}, {}]);
   };
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
 
-  const { t } = useTranslation("common");
+  const options = [
+    { value: "all", label: "all" },
+    { value: "Bronze", label: "Bronze" },
+    { value: "Silver", label: "Silver" },
+    { value: "Gold", label: "Gold" },
+    { value: "Platinum", label: "Platinum" },
+    { value: "Diamond", label: "Diamond" },
+    { value: "Elite", label: "Elite" },
+  ];
+
   return (
     <div className="w-screem max-w-screen-xl px-4 md:w-full">
-      <div className="text-2xl lg:text-3xl">{t("home.title")}</div>
-      <div className="mt-6 flex items-center">
-        <div>
-          {t("home.arrang")}: <span>全部</span>
+      <div className="text-2xl lg:text-3xl">
+        Wager.game VIP Product Redemption
+      </div>
+      <div className="mt-6 flex items-center ">
+        <div className="lg:flex lg:items-center">
+          <div className="lg:mr-[10px]">Arrangement:</div>
+          <Select
+            defaultValue="all"
+            style={{ width: 80 }}
+            onChange={handleChange}
+            options={options}
+          />
         </div>
         <div
           onClick={() => {
@@ -27,7 +47,7 @@ export default function Home() {
           }}
           className="ml-4 cursor-pointer text-[#00a4ff]"
         >
-          {t("home.address")}&gt;
+          Manage address book&gt;
         </div>
       </div>
 
@@ -55,7 +75,7 @@ export default function Home() {
         onClick={clickMore}
         className="mx-auto mt-10 w-[120px] cursor-pointer pb-8 text-center text-[#00a4ff]"
       >
-        {t("home.more")}&gt;
+        more&gt;
       </div>
     </div>
   );

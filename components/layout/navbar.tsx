@@ -7,8 +7,7 @@ import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 import { useState } from "react";
-import { LangSwitcher } from "@/components/LangSwitcher";
-
+import Popup from "../popup";
 export default function NavBar({ session }: { session?: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
@@ -21,6 +20,7 @@ export default function NavBar({ session }: { session?: Session | null }) {
       email: "1234567@qq.com",
     },
   });
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
@@ -55,8 +55,6 @@ export default function NavBar({ session }: { session?: Session | null }) {
           </div>
 
           <div className="flex items-center">
-            <LangSwitcher></LangSwitcher>
-
             {showPersonal ? (
               <UserDropdown session={sesson} />
             ) : (
@@ -64,7 +62,7 @@ export default function NavBar({ session }: { session?: Session | null }) {
                 className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
                 onClick={() => {
                   // setShowSignInModal(true);
-                  setShowPersonal(true);
+                  setShowPopup(true);
                 }}
               >
                 Sign In
@@ -73,6 +71,15 @@ export default function NavBar({ session }: { session?: Session | null }) {
           </div>
         </div>
       </div>
+
+      {showPopup && (
+        <Popup
+          hidePopup={() => {
+            setShowPopup(false);
+            setShowPersonal(true);
+          }}
+        ></Popup>
+      )}
     </>
   );
 }

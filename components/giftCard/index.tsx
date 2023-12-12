@@ -1,7 +1,6 @@
 import React from "react";
 import giftPhoto from "@/assets/1.png";
 import hotPhoto from "@/assets/hot.png";
-import useTranslation from "next-translate/useTranslation";
 
 interface GiftCardProps {
   // Add your prop types here
@@ -12,8 +11,6 @@ interface GiftCardProps {
 import Image from "next/image";
 
 const GiftCard: React.FC<GiftCardProps> = ({ index, immediateExchange }) => {
-  const { t } = useTranslation("common");
-
   return (
     <div
       key={index + "a"}
@@ -42,7 +39,7 @@ const GiftCard: React.FC<GiftCardProps> = ({ index, immediateExchange }) => {
             text-[#00a4ff] ${index == 1 ? "grayscale" : ""}`}
             onClick={immediateExchange}
           >
-            {t("home.redeem")}
+            Redeem now
           </div>
         </div>
       </div>

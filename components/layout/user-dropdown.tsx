@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { signOut } from "next-auth/react";
+import person from "@/assets/person.png";
+
 import {
   AlignJustify,
   LayoutDashboard,
@@ -38,6 +40,7 @@ export default function UserDropdown({ session }: { session: any }) {
               onClick={() => {
                 // signOut()
                 router.push("/level");
+                setOpenPopover(false);
               }}
             >
               <AlignJustify className="h-4 w-4" />
@@ -48,6 +51,7 @@ export default function UserDropdown({ session }: { session: any }) {
               onClick={() => {
                 // signOut()
                 router.push("/exchangeHistory");
+                setOpenPopover(false);
               }}
             >
               <ChevronsRightLeft className="h-4 w-4" />
@@ -64,12 +68,7 @@ export default function UserDropdown({ session }: { session: any }) {
           onClick={() => setOpenPopover(!openPopover)}
           className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-gray-300 transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
         >
-          <Image
-            alt={email}
-            src={image || `https://avatars.dicebear.com/api/micah/${email}.svg`}
-            width={40}
-            height={40}
-          />
+          <Image alt={email} src={person} width={40} height={40} />
         </button>
       </Popover>
     </div>

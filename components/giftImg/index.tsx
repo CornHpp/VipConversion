@@ -13,7 +13,7 @@ const GiftImg: React.FC<Props> = (props) => {
   const { width, height, showTitle = true } = props;
   return (
     <div
-      className={`flex h-[130px] w-full flex-shrink-0 flex-col items-center bg-[#f5f8fa] lg:h-[140px] lg:w-[190px]`}
+      className={`flex h-[130px] w-full flex-shrink-0 flex-shrink-0 flex-col items-center bg-[#f5f8fa] lg:h-[140px] lg:w-[190px]`}
       style={{ width: width, height: height }}
     >
       <Image
