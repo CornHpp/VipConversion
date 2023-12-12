@@ -19,4 +19,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextTranslate(nextConfig);
+module.exports = nextTranslate(nextConfig, {
+  appPath: "src",
+});
