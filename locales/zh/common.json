@@ -22,13 +22,14 @@
   "giftdetail": {
     "title": "积分兑换产品周边",
     "details": "兑换产品成功后不可退还，请在站内信查收产品发货情况",
-    "name": "怪企鹅定制鹅豆人",
-    "giftTitle": "兑换商品",
-    "giftDetail": "面料：水晶超柔/材质：聚脂钎维/包装：透明束口袋",
-    "integral": "600积分",
-    "integraled": "0积分",
+    "name": "兑换商品",
+    "exchangeLevel": "兑换等级",
+    "nowLevel": "现为等级",
     "harvest": "收货人",
+    "addAddress": "新增收货信息",
     "phone": "123456789",
-    "harvestAddress": "收货地址"
+    "harvestAddress": "收货地址",
+    "confirm": "确认",
+    "cancel": "取消"
   }
 }

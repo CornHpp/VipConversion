@@ -52,10 +52,11 @@ export default function NavBar({ session }: { session?: Session | null }) {
             <Link className="ml-4 font-bold lg:ml-10" href="/level">
               Level
             </Link>
-            <LangSwitcher></LangSwitcher>
           </div>
 
-          <div>
+          <div className="flex items-center">
+            <LangSwitcher></LangSwitcher>
+
             {showPersonal ? (
               <UserDropdown session={sesson} />
             ) : (

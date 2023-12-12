@@ -27,7 +27,9 @@
     "nowLevel": "Current level",
     "harvest": "Consignee",
     "addAddress": "Add consignment information",
-    "phone": "123456789",
-    "harvestAddress": "收货地址"
+    "phone": "phone",
+    "harvestAddress": "收货地址",
+    "comfirm": "Comfirm",
+    "cancel": "Cancel"
   }
 }

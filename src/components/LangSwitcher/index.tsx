@@ -2,6 +2,7 @@
 
 import i18n from "../../../i18n";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { Select } from "antd";
 
 export const LangSwitcher = () => {
   const { lang } = useParams();
@@ -9,9 +10,10 @@ export const LangSwitcher = () => {
   const router = useRouter();
 
   return (
-    <select
+    <Select
+      className="mr-[10px]"
       onChange={(e) => {
-        const value = e.target.value;
+        const value = e;
         const correctPathname = pathname.replace(`/${lang}`, `/${value}`);
         console.log(correctPathname);
         router.push(correctPathname);
@@ -25,6 +27,6 @@ export const LangSwitcher = () => {
             {res}
           </option>
         ))}
-    </select>
+    </Select>
   );
 };
