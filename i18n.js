@@ -4,5 +4,9 @@ module.exports = {
   localeDetection: false,
   pages: {
     "*": ["common"],
+    "/": ["app"],
+    "/address": ["address"],
+    "/exchangeHistory": ["exchangeHistory"],
+    "/level": ["level"],
   },
 };
