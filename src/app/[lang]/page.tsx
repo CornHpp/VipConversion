@@ -53,7 +53,7 @@ export default function Home() {
 
       <div
         onClick={clickMore}
-        className="mx-auto mt-10 w-[120px] cursor-pointer pb-8 text-[#00a4ff]"
+        className="mx-auto mt-10 w-[120px] cursor-pointer pb-8 text-center text-[#00a4ff]"
       >
         {t("home.more")}&gt;
       </div>
