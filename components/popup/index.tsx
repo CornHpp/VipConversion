@@ -27,7 +27,10 @@ const Popup: React.FC<PopupProps> = ({ hidePopup }) => {
           Exciting Rewards Await VIP Exchange, Non-stop Thrilling!
         </div>
 
-        <div className="mt-[20px] w-[] cursor-pointer text-[30px] font-bold">
+        <div
+          onClick={hidePopup}
+          className="mt-[20px] w-[] cursor-pointer text-[30px] font-bold"
+        >
           Join now
         </div>
       </div>
